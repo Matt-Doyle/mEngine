@@ -11,7 +11,7 @@ namespace mEngine {
 					/* https://msdn.microsoft.com/en-us/library/windows/desktop/ms682425(v=vs.85).aspx CreateProcess function */
 					/* https://msdn.microsoft.com/en-us/library/windows/desktop/ms682528(v=vs.85).aspx Creation of a console tutorial */
 
-					typedef struct _STARTUPINFO {
+					struct _STARTUPINFO {
 						DWORD  cb;
 						LPTSTR lpReserved;
 						LPTSTR lpDesktop;
@@ -56,7 +56,25 @@ namespace mEngine {
 
 					HANDLE stdOut = GetStdHandle(STD_OUTPUT_HANDLE);
 
-					CreateProcess(L"mEngineConsole", NULL, NULL, NULL, FALSE, CREATE_NEW_CONSOLE, NULL, NULL, (LPSTARTUPINFO)&StartUpInfo);
+
+					struct _PROCESS_INFORMATION {
+						HANDLE hProcess;
+						HANDLE hThread;
+						DWORD  dwProcessId;
+						DWORD  dwThreadId;
+					};
+
+					_PROCESS_INFORMATION Process_Information;
+					SecureZeroMemory(&Process_Information, sizeof(_PROCESS_INFORMATION));
+
+					if (CreateProcess(L"mEngineConsole", NULL, NULL, NULL, FALSE, CREATE_NEW_CONSOLE, NULL, NULL, (LPSTARTUPINFO)&StartUpInfo, (LPPROCESS_INFORMATION)&Process_Information))
+					{
+						return true;
+					}
+					else
+					{
+						return false;
+					}
 				}
 			}
 		}

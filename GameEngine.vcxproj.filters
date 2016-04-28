@@ -13,10 +13,30 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\debug">
+      <UniqueIdentifier>{b5a62072-d6a8-42e7-8d9d-458289eb2a72}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\debug\toolkit">
+      <UniqueIdentifier>{e0f3d0d2-5ea3-43be-9b17-f6ef9ba37ec0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\debug">
+      <UniqueIdentifier>{504846d8-df1e-41ab-bc62-0361f6b1c952}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\debug\toolkit">
+      <UniqueIdentifier>{b15709ff-bff2-4f0b-b48f-f5113af866d7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="toolkit\debug\logger.cpp">
+      <Filter>Source Files\debug\toolkit</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="toolkit\debug\logger.h">
+      <Filter>Header Files\debug\toolkit</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
